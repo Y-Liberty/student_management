@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少儿编程机构档案管理系统 - 首页</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <!-- 页面主容器 -->
+    <div class="container">
+        <!-- 侧边导航栏 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>少儿编程</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="active"><a href="dashboard.html">首页</a></li>
+                <li><a href="students.html">学生管理</a></li>
+                <li><a href="teachers.html">教师管理</a></li>
+                <li><a href="courses.html">课程管理</a></li>
+                <li><a href="schedule.html">课时管理</a></li>
+                <li><a href="settings.html">系统设置</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 顶部导航栏 -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索...">
+                </div>
+                <div class="user-info">
+                    <span>管理员</span>
+                    <button class="logout-btn">退出</button>
+                </div>
+            </header>
+            
+            <!-- 仪表盘内容 -->
+            <div class="dashboard-content">
+                <h1>系统概览</h1>
+                
+                <!-- 统计卡片 -->
+                <div class="stats-cards">
+                    <div class="card">
+                        <h3>学生总数</h3>
+                        <p class="number">120</p>
+                    </div>
+                    <div class="card">
+                        <h3>教师总数</h3>
+                        <p class="number">15</p>
+                    </div>
+                    <div class="card">
+                        <h3>课程总数</h3>
+                        <p class="number">8</p>
+                    </div>
+                    <div class="card">
+                        <h3>今日课程</h3>
+                        <p class="number">6</p>
+                    </div>
+                </div>
+                
+                <!-- 最近活动 -->
+                <div class="recent-activities">
+                    <h2>最近活动</h2>
+                    <ul>
+                        <li>张三同学完成了Python基础课程</li>
+                        <li>李四老师添加了新的Scratch课程</li>
+                        <li>王五同学报名了C++进阶课程</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/dashboard.js"></script>
+</body>
+</html> 

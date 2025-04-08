@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少儿编程机构档案管理系统 - 学生管理</title>
+    <link rel="stylesheet" href="../css/students.css">
+</head>
+<body>
+    <!-- 页面主容器 -->
+    <div class="container">
+        <!-- 侧边导航栏 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>少儿编程</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">首页</a></li>
+                <li class="active"><a href="students.html">学生管理</a></li>
+                <li><a href="teachers.html">教师管理</a></li>
+                <li><a href="courses.html">课程管理</a></li>
+                <li><a href="schedule.html">课时管理</a></li>
+                <li><a href="settings.html">系统设置</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 顶部导航栏 -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索学生...">
+                </div>
+                <div class="user-info">
+                    <span>管理员</span>
+                    <button class="logout-btn">退出</button>
+                </div>
+            </header>
+            
+            <!-- 学生管理内容 -->
+            <div class="students-content">
+                <div class="content-header">
+                    <h1>学生管理</h1>
+                    <button class="add-student-btn">添加学生</button>
+                </div>
+                
+                <!-- 学生列表 -->
+                <div class="students-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>年龄</th>
+                                <th>性别</th>
+                                <th>生日</th>
+                                <th>所在课程</th>
+                                <th>剩余课时</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 学生数据将通过JavaScript动态加载 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 分页控件 -->
+                <div class="pagination">
+                    <button class="prev-page">上一页</button>
+                    <span class="page-info">第 1 页，共 1 页</span>
+                    <button class="next-page">下一页</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- 添加/编辑学生弹窗 -->
+    <div class="modal" id="studentModal">
+        <div class="modal-content">
+            <h2>添加学生</h2>
+            <form id="studentForm">
+                <div class="form-grid">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">年龄</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">性别</label>
+                            <select id="gender" name="gender" required>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday">生日</label>
+                            <input type="date" id="birthday" name="birthday" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">选择课程</label>
+                            <select id="course" name="course" required>
+                                <option value="Scratch">Scratch</option>
+                                <option value="Python">Python</option>
+                                <option value="C++">C++</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="parentName">家长姓名</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentPhone">家长电话</label>
+                            <input type="tel" id="parentPhone" name="parentPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="totalLessons">总课时</label>
+                            <input type="number" id="totalLessons" name="totalLessons" required min="1" value="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="completedLessons">已完成课时</label>
+                            <input type="number" id="completedLessons" name="completedLessons" required min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">取消</button>
+                    <button type="submit" class="save-btn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../js/students.js"></script>
+</body>
+</html> 
