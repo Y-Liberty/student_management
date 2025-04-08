@@ -66,17 +66,32 @@ app.delete('/api/students/:id', async (req, res) => {
 
 // 前端路由
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', 'login.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', 'dashboard.html'));
+});
+
+app.get('/students', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages', 'students.html'));
 });
 
 // 初始化数据库并启动服务器
 const port = process.env.PORT || 5500;
-initDatabase()
-    .then(() => {
-        app.listen(port, () => {
-            console.log(`服务器运行在 http://localhost:${port}`);
+
+// 在Vercel环境中不需要手动启动服务器
+if (process.env.NODE_ENV !== 'production') {
+    initDatabase()
+        .then(() => {
+            app.listen(port, () => {
+                console.log(`服务器运行在 http://localhost:${port}`);
+            });
+        })
+        .catch(error => {
+            console.error('服务器启动失败:', error);
         });
-    })
-    .catch(error => {
-        console.error('服务器启动失败:', error);
-    }); 
+}
+
+// 导出app用于Vercel
+module.exports = app; 

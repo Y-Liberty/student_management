@@ -2,17 +2,15 @@ const mysql = require('mysql2');
 
 // 创建数据库连接池
 const pool = mysql.createPool(
-    process.env.DATABASE_URL
-        ? process.env.DATABASE_URL
-        : {
-              host: process.env.DB_HOST || 'localhost',
-              user: process.env.DB_USER || 'root',
-              password: process.env.DB_PASSWORD || '',
-              database: process.env.DB_NAME || 'student_management',
-              waitForConnections: true,
-              connectionLimit: 10,
-              queueLimit: 0
-          }
+    process.env.DATABASE_URL || {
+        host: process.env.DB_HOST || 'localhost',
+        user: process.env.DB_USER || 'root',
+        password: process.env.DB_PASSWORD || '',
+        database: process.env.DB_NAME || 'student_management',
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
+    }
 );
 
 // 创建数据库和表
