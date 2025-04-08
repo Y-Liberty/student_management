@@ -9,7 +9,11 @@ const app = express();
 // 中间件
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname)));
+
+// 设置静态文件目录
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/pages', express.static(path.join(__dirname, 'pages')));
 
 // API路由
 // 获取所有学生
